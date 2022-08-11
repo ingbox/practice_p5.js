@@ -46,6 +46,13 @@ a {
     padding: 0 1rem;
     z-index: 11;
 }
+.local-nav-sticky .local-nav {
+    position: fixed;
+    top: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: saturate(180%) blur(15px);
+}
+
 .global-nav-links,
 .local-nav-links {
     display: flex;
@@ -160,7 +167,6 @@ a {
     margin: 0 auto;
     font-size: 2rem;
     color: #888;
-
 }
 
 .mid-message strong {
@@ -169,7 +175,7 @@ a {
 
 .canvas-caption {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: -4em auto 0;
     color: #888;
     padding: 0 1rem;
     /* text-align: center; */
@@ -230,6 +236,7 @@ footer {
     .description {
         margin: 0 auto;
         font-size: 2rem;
+        padding: 0;
     }
     .description strong {
         font-size: 6rem;
@@ -245,10 +252,13 @@ footer {
         width: 20%;
     }
     .mid-message {
+        width: 1000px;
         font-size: 4vw;
+        padding: 0;
     }
     .canvas-caption {
         font-size: 2rem;
+        padding: 0;
     }
     #scroll-section-2 .b {
         top: 20%;
