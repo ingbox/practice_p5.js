@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="includeHTML.js"></script>
-    <script defer src="activePage.js"></script>
+    <link rel="stylesheet" type="text/css" href="./frontend/style.css">
+    <script src="./frontend/includeHTML.js"></script>
+    <!-- <script defer src="activePage.js"></script> -->
 
     <title>My design P5JS</title>
-    <script src="./static/js/p5.min.js"></script>
-    <script src="./static/js/p5.sound.min.js"></script>
+    <script src="./frontend/static/js/p5.min.js"></script>
+    <script src="./frontend/static/js/p5.sound.min.js"></script>
   </head>
 
   <body>
-    <div data-include-path="header.html"></div>
+    <div data-include-path="./header.html"></div>
 
     <script>
       let angle = 0;
@@ -28,22 +28,15 @@
         let dy = mouseY - height / 2;
         let v = createVector(dx, dy, 0);
         v.normalize();
-
-        // ambientLight(255);
-        // pointLight(191, 155, 48, 0, -700, 700);
         directionalLight(191, 155, 48, v);
-        // directionalLight(191, 155, 48, 0, 0, -1);
-   
+
         background(0);
         rectMode(CENTER);
         noStroke();
-        // fill(255);
-        // normalMaterial();
-        // ambientMaterial(0, 0, 255);
+
         specularMaterial(255,155,48);
         rotateY(angle);
         rect(0, 0, 500, 300)
-       
 
         angle += 0.008;
       }
