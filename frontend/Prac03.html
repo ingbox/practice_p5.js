@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script defer src="activePage.js"></script>
+    <script src="includeHTML.js"></script>
+
+    <title>My design P5JS</title>
+
+    <script src="./static/js/p5.min.js"></script>
+    <script src="./static/js/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <div data-include-path="header.html"></div>
+
+    <script>
+      let img;
+      let smallPoint, largePoint;
+
+      function preload() {
+        img = loadImage('https://yt3.ggpht.com/ytc/AKedOLRLfUJ--CMea7M9vsn3XnZk9Ocx2ZAZF9i6bWtT=s900-c-k-c0x00ffffff-no-rj');
+      }
+
+      function setup() {
+        createCanvas(windowWidth - 190, windowHeight- 10);
+        smallPoint = 4;
+        largePoint = 40;
+        imageMode(CENTER);
+        noStroke();
+        background(255);
+        // img.loadPixels();
+      }
+
+      function draw() {
+        let pointillize = map(mouseX, 0, width, smallPoint, largePoint);
+        let x = floor(random(img.width));
+        let y = floor(random(img.height));
+        let pix = img.get(x, y);
+        console.log(pix);
+        fill(pix, 128);
+        ellipse(x, y, pointillize, pointillize);
+      }
+
+    </script>
+  </body>
+</html>
