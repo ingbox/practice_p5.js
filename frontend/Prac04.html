@@ -5,14 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="default.css">
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="css/Prac4/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap" rel="stylesheet">
     <title>My design P5JS</title>
   </head>
 
-  <body>
+  <body class="before-load">
+    <div class="loading">
+      <svg class="loading-circle">
+        <circle cx="50%" cy="50%" r="25"></circle>
+      </svg>
+    </div>
     <div class="container">
       <nav class="global-nav">
         <div class="global-nav-links">
@@ -109,9 +114,7 @@
         <p>
           사랑해 널 이 느낌 이대로 그려왔던 헤메임의 끝 이 세상 속에서 반복되는 슬픔 이제 안녕 수 많은 알 수 없는 길 속에 희미한 빛을 난 쫓아가 언제까지라도 함께하는 거야 다시만난 나의 세계
         </p>
-        <div class="pin">
-
-        </div>
+        <div class="pin"></div>
       </div>
 
       <div class="sticky-elem desc-message c">
@@ -128,17 +131,14 @@
         <div class="pin">
         </div>
       </div>
-
-    </section>  
+    </section>
     <section class="scroll-section" id="scroll-section-3">
       <p class="mid-message">
         <strong>알 수 없는 미래와 벽</strong><br>
         바꾸지 않아<br>
         포기할 수 없어<br>
       </p>
-        <canvas class="image-blend-canvas" width="1920" height="1080">
-
-        </canvas>
+      <canvas class="image-blend-canvas" width="1920" height="1080"></canvas>
       <p class="canvas-caption">
         전해주고 싶어 슬픈 시간이
         다 흩어진 후에야 들리지만
@@ -189,11 +189,16 @@
         이 순간의 느낌 함께 하는 거야
         다시 만난 우리의
       </p>
-    </section>  
-    <footer>
+    </section>
+    <section class="normal-content">
+      <p class="mid-message">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo magni ullam cumque est nesciunt fugiat culpa distinctio consequatur nam. Laudantium, itaque cum. Quasi aperiam illo praesentium doloribus nobis impedit qui?
+      </p>
+    </section>
+    <footer class="footer">
       2022, INGBOX
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/Prac4/main.js"></script>
   </body>
 </html>
