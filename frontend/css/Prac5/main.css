@@ -13,13 +13,21 @@ body {
 p {
 	line-height: 1.6;
 }
+
 a {
 	color: rgb(29, 29, 31);
 	text-decoration: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
 }
 
 .container {
 	/* iPhone 가로 스크롤 방지 */
+	position: relative;
 	overflow-x: hidden;
 }
 .scroll-section {
