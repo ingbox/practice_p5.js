@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Parallax Scrolling</title>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/Prac08/style.css">
+</head>
+<body>
+	<!-- background -->
+	<div class="fixed-bg" data-0="background-color:rgb(101,115,126); opacity: 1;" data-1000="background-color:rgb(79,91,102); width: 100%; left: 0%; opacity: 1;" data-2000="width: 60%; left: 20%; opacity:1;" data-2500="opacity:0; background-color:rgb(51,51,52);" data-3000="width: 100%; left: 0%; opacity:1;"></div>
+	<div class="home">
+		<a href="../index.html" class="btn-home" onclick="location.href='../index.html'">Home</a>
+	</div>
+	<div class="slide-nav">
+		<a href="#" class="btn-previous">Previous</a>
+		<a href="#" class="btn-next">Next</a>
+	</div>
+	<section id="slide01" class="slide" data-0="top:0%;" data-500="top:-100%;">
+		<div class="slide-content">
+			<p>Skrollr 라이브러리와 JQuery를 사용하여 간단하게 Parallax Scroll Animation을 만들어보자</p>
+		</div>
+	</section>
+
+
+	<section id="slide02" class="slide" data-500="left:100%; opacity:0;" data-1000="left:0%; opacity:1;" data-2500="opacity:0;">
+		<div class="slide-content">
+			<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio ut perferendis laborum! Perspiciatis assumenda error veniam et mollitia illo eligendi facilis quia temporibus, hic sunt excepturi ducimus, quas repudiandae perferendis.</p>
+		</div>
+	</section>
+
+
+	<section id="slide03" class="slide" data-2500="opacity:0; left: -20%" data-3000="opacity:1;">
+		<div class="slide-content">
+			<img src="img8/start.png">
+			
+			<!-- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio ut perferendis laborum! Perspiciatis assumenda error veniam et mollitia illo eligendi facilis quia temporibus, hic sunt excepturi ducimus, quas repudiandae perferendis. -->
+		</div>
+	</section>
+
+	<!-- 	
+	<section id="slide04" class="slide">
+		<div class="slide-content">
+			Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio ut perferendis laborum! Perspiciatis assumenda error veniam et mollitia illo eligendi facilis quia temporibus, hic sunt excepturi ducimus, quas repudiandae perferendis.
+		</div>
+	</section>-->
+
+	<div class="ingbox slide" data-2500="top: 100%; opacity: 0;" data-3000="opacity:0;" data-4000="top: 10%; opacity:1;">
+		<img id="logo" src="img8/logo.svg" alt="Ingbox">
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="js/Prac08/skrollr.js"></script>
+	<script src="js/Prac08/main.js"></script>
+</body>
+</html>
