@@ -5,42 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/Prac01/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
     <script defer src="activePage.js"></script>
     <script src="includeHTML.js"></script>
 
-    <title>My design P5JS</title>
+    <title>My Design Note</title>
 
     <script src="./static/js/p5.min.js"></script>
     <script src="./static/js/p5.sound.min.js"></script>
   </head>
 
   <body>
- 
-      <div data-include-path="header_in.html"></div>
+    <div data-include-path="header_in.html"></div>
+
+    <canvas class="canvas" width="1500" height="800"></canvas>
+    <div class="control">
+      색 선택
+      <button class="color-btn" data-type="color" data-color="black"></button>
+      <button class="color-btn" data-type="color" data-color="red"></button>
+      <button class="color-btn" data-type="color" data-color="green"></button>
+      <button class="color-btn" data-type="color" data-color="blue"></button>
+      <button class="color-btn" data-type="color" data-color="pink"></button>
+      <button class="image-btn" data-type="image"></button>
+      <button class="clear-btn">캔버스 지우기</button>
+      <a class="save-btn" download="ingb.png">이미지 저장</a>
+    </div>
+    <div class="result-image"></div>
+  
 
     <script>
-        let pg;
+      const canvas = document.querySelector('.canvas');
+      const context = canvas.getContext('2d');
+      const control = document.querySelector('.control');
+      const clearBtn =  document.querySelector('.clear-btn');
+      const saveBtn =  document.querySelector('.save-btn');
+      const resultImage = document.querySelector('.result-image');
+      let drawingMode = false;
+      let brush = 'color';
+      let colorVal = 'black';
 
-        function setup() {
-          createCanvas(1280, 720);
-          pg = createGraphics(400, 250);
+      const imgElem = new Image();
+      imgElem.src = 'img8/ingb.png';
+
+
+      function downHandler() {
+        drawingMode = true;
+      }
+      
+      function upHandler() {
+        drawingMode = false;
+      }
+
+      function moveHandler(event) {
+        if(!drawingMode) return;
+
+        switch(brush) {
+        case 'color':
+          context.beginPath();
+          context.arc(event.layerX, event.layerY, 5, 0, Math.PI * 2, false);
+          context.fill();
+          break;
+        case 'image':
+          context.drawImage(imgElem, event.layerX, event.layerY, 50, 50);
+          break;
         }
+      }
+      
+      function setColor(event) {
+        brush = event.target.getAttribute('data-type');
+        colorVal = event.target.getAttribute('data-color');
+        context.fillStyle = colorVal;
+      }
 
-        function draw() {
-          fill(0, 0, 0);
-          rect(0, 0, width, height);
-          fill(255);
-          noStroke();
-          ellipse(mouseX, mouseY, 60, 60);
+      function createImage(event) {
+        event.target.href = canvas.toDataURL();
+      }
 
-          pg.background(51);
-          pg.noFill();
-          pg.stroke(255);
-          pg.ellipse(mouseX - 150, mouseY - 75, 60, 60);
+      function clearImage() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+      }
 
-          image(pg, 150, 75);
-        }
+      canvas.addEventListener('mousedown', downHandler);
+      canvas.addEventListener('mousemove', moveHandler);
+      canvas.addEventListener('mouseup', upHandler);
+      control.addEventListener('click', setColor);
+      saveBtn.addEventListener('click', createImage);
+      clearBtn.addEventListener('click', clearImage)
     </script>
   </body>
 </html>
